@@ -1,0 +1,7 @@
+- [ ] Add CodeMirror Example 
+- [ ] Add other examples? 
+- [ ] Add README 
+    - [ ] Explain what this is
+    - [ ] Explain how to run it
+    - [ ] Explain how to set it up
+    - [ ] Add screenshot with what should happen
