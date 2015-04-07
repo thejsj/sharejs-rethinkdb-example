@@ -9,6 +9,7 @@
     "express": "^4.12.3",
     "livedb": "^0.5.9",
     "livedb-mongo": "^0.4.1",
+    "livedb-rethinkdb": "0.0.2",
     "share": "^0.7.27",
     "share-codemirror": "^0.1.0",
     "ws": "^0.7.1"

@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var liveDBRethinkDB = require('../../livedb-rethinkdb/');
+var liveDBRethinkDB = require('livedb-rethinkdb');
 var livedb = require('livedb');
 var db = liveDBRethinkDB({
   db: 'sharejs',
