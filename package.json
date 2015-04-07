@@ -1,0 +1,38 @@
+{
+  "name": "sharejs-rethinkdb-examples",
+  "version": "0.0.1",
+  "description": "A couple of examples using ShareJS with RethinkDB",
+  "main": "server/index.js",
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "connect": "^3.3.5",
+    "express": "^4.12.3",
+    "livedb": "^0.5.9",
+    "livedb-mongo": "^0.4.1",
+    "share": "^0.7.27",
+    "share-codemirror": "^0.1.0",
+    "ws": "^0.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thejsj/sharejs-rethinkdb-example.git"
+  },
+  "keywords": [
+    "sharejs",
+    "rethinkdb",
+    "realtime",
+    "ot",
+    "operational",
+    "transformation"
+  ],
+  "author": "thejsj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thejsj/sharejs-rethinkdb-example/issues"
+  },
+  "homepage": "https://github.com/thejsj/sharejs-rethinkdb-example"
+}
