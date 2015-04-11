@@ -6,6 +6,7 @@ var connect = require('connect'),
   wss = new WebSocketServer({
     server: shareJSServer
   });
+
 var socketConnectionHandler = require('./socket-handler');
 
 wss.on('connection', socketConnectionHandler);

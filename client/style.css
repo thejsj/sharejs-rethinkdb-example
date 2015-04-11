@@ -1,0 +1,36 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
+  border-right: 1px solid #f7f7f7;
+  border-left: 1px solid #f7f7f7;
+  padding-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 232px;
+  padding: 5px;
+  border: solid 2px #e4e4e4;
+  border-radius: 3px;
+  resize: vertical;
+}
+
+textarea.update-textarea {
+  min-height: 205px;
+  background: #f7f7f7;
+}
+h6 {
+  margin: 8px 0;
+}

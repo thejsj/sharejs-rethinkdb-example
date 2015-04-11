@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "codemirror": "~5.1.0",
-    "share-codemirror": "~0.1.0"
+    "share-codemirror": "~0.1.0",
+    "gridism": "~0.2.1"
   }
 }
