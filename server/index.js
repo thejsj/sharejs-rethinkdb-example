@@ -1,4 +1,5 @@
 var config = require('config');
+console.log(config);
 var express = require('express');
 var shareCodeMirror = require('share-codemirror');
 var r = require('rethinkdb');
