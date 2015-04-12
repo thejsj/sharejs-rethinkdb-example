@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Ace Editor - ShareJS and RethinkDB</title>
+    <title>ShareJS and RethinkDB</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script src="/socket.io/socket.io.js"></script>
@@ -14,6 +14,7 @@
   <body>
     <div class='container'>
       <h1 class='main-title'>ShareJS + RethinkDB</span>
+      <p>A Sharejs setup using the livedb-rethinkdb module.</p>
       <h3>Textarea</h3>
       <div class='grid'>
         <div class='unit half'>
@@ -35,6 +36,7 @@
         </div>
       </div>
     </div>
+    <script src="/config.js"></script>
     <script src="/sharejs/json0.js"></script>
     <script src="/sharejs/text.js"></script>
     <script src="/sharejs/share.uncompressed.js"></script>
@@ -55,7 +57,7 @@
     });
 
     // ShareJS
-    var ws = new WebSocket('ws://localhost:8005');
+    var ws = new WebSocket('ws://' + window.config.url + ':' + window.config.ports.sharejs);
     var sjs = new window.sharejs.Connection(ws);
 
     // Codemirror
@@ -101,7 +103,7 @@
     });
 
     // RethinkDB
-    var socket = io.connect('http://localhost:8000');
+    var socket = io.connect('http://' + window.config.url + ':' + window.config.ports.http);
     socket.on('documents_ops', function (row) {
       console.log(row.new_val);
       var el = document.getElementById(row.new_val.name + '-updates');
