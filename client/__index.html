@@ -20,7 +20,7 @@
     <script src="/sharejs/json0.js"></script>
     <script src="/sharejs/share.uncompressed.js"></script>
     <script>
-      var ws = new WebSocket('ws://localhost:8005');
+      var ws = new WebSocket('ws://' + window.config.url ':' + window.config.ports.sharejs);
       var sjs = new window.sharejs.Connection(ws);
       var elem = document.getElementById('editor');
       var doc = sjs.get('documents', 'helloworld');
