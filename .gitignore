@@ -3,3 +3,5 @@
 node_modules
 .DS_Store
 client/lib
+config/*
+!config/default.js
