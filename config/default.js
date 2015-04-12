@@ -12,16 +12,12 @@ var config = {
   'rethinkdb': {
     'host': 'localhost',
     'port': 28015,
-    'db': 'image_pin'
+    'db': 'sharejs'
   },
   'ports': {
     'http': 8000,
+    'sharejs': 8005,
   },
-  'url': '127.0.0.1',
-  'googleAnaylitcsUACode': false,
-  'github': {
-    'clientID': '8b3c66a88c3ca0264ff1',
-    'clientSecret': '62d1bfb8e132ab74556baadac90320bcdbf39a12',
-  }
+  'url': '127.0.0.1'
 };
 module.exports = config;
