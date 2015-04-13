@@ -1,5 +1,5 @@
 var sharejs = require('share');
-var duplex = require('stream').duplex;
+var Duplex = require('stream').Duplex;
 var backend = require('./livedb-client');
 var share = sharejs.server.createClient({
   backend: backend

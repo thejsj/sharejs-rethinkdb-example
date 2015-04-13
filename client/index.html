@@ -85,7 +85,6 @@
     var textareaDoc = sjs.get('documents', 'helloworld');
     textareaDoc.subscribe();
     textareaDoc.whenReady(function () {
-      console.log('Doc Ready:');
       /**
        * For some reason, doc.type comes out as undefined, even though it's
        * there if we console.log the whole object or console.log the keys
@@ -105,7 +104,6 @@
     // RethinkDB
     var socket = io.connect('http://' + window.config.url + ':' + window.config.ports.http);
     socket.on('documents_ops', function (row) {
-      console.log(row.new_val);
       var el = document.getElementById(row.new_val.name + '-updates');
       window.el = el;
       el.textContent = JSON.stringify(row.new_val, null, '\t');

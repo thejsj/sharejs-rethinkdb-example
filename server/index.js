@@ -2,7 +2,7 @@ var config = require('config');
 console.log(config);
 var express = require('express');
 var shareCodeMirror = require('share-codemirror');
-var r = require('rethinkdb');
+var r = require('./db');
 
 var shareJSServer = require('./sharejs-server');
 var socketHandler = require('./socket-handler');
@@ -25,7 +25,6 @@ server.listen(config.get('ports').http);
 io.on('connection', function (socket) {
     var listenToTable = function (tableName) {
         r.connect(config.get('rethinkdb')).then(function (conn) {
-          console.log(tableName);
           r.table(tableName)
            .changes()
            .run(conn)

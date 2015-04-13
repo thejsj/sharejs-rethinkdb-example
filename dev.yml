@@ -8,6 +8,7 @@ server:
   build: .
   ports:
    - "80:80"
+   - "8004:8004"
   links:
    - "rethinkdb"
   environment:
@@ -15,4 +16,5 @@ server:
     PORT: 80
   volumes:
     - ./:/app
+    - ../livedb-rethinkdb:/livedb-rethinkdb
   command: npm start
