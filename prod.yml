@@ -8,10 +8,11 @@ server:
   build: .
   ports:
    - "10400:80"
-   - "10401:81" # sharejs port
+   - "10401:10401" # sharejs port
   links:
    - "rethinkdb"
   environment:
     NODE_ENV: production
     PORT: 80
+    SHAREJS_PORT: 10401
   command: npm start
