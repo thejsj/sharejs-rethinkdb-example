@@ -10,7 +10,7 @@
     "express": "^4.12.3",
     "livedb": "^0.5.9",
     "livedb-mongo": "^0.4.1",
-    "livedb-rethinkdb": "0.0.3",
+    "livedb-rethinkdb": "^0.0.4",
     "protolog": "0.0.1",
     "rethinkdb": "^1.16.2",
     "rethinkdbdash": "^1.16.14",
