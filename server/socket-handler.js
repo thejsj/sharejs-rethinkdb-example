@@ -11,6 +11,7 @@ var socketConnectionHandler = function (client) {
     objectMode: true
   });
   stream._write = function (chunk, encoding, callback) {
+    console.log('Stream : write -> ', JSON.stringify(chunk));
     client.send(JSON.stringify(chunk));
     return callback();
   };
@@ -19,6 +20,7 @@ var socketConnectionHandler = function (client) {
   stream.remoteAddress = client.upgradeReq.connection.remoteAddress;
 
   client.on('message', function (data) {
+    console.log('Client : message -> ', JSON.parse(data));
     return stream.push(JSON.parse(data));
   });
   stream.on('error', function (msg) {

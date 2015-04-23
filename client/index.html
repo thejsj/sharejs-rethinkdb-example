@@ -17,20 +17,28 @@
       <p>A Sharejs setup using the livedb-rethinkdb module.</p>
       <h3>Textarea</h3>
       <div class='grid'>
-        <div class='unit half'>
+        <div class='unit one-third'>
           <textarea id="helloworld">Loading..</textarea>
         </div>
-        <div class='unit half'>
-            <h6>Last Transformation (Saved in Database)</h6>
+        <div class='unit one-third'>
+           <h6>Current State of Document (Saved in Database)</h6>
+           <textarea id='helloworld-doc-updates' class='disabled update-textarea' disabled></textarea>
+        </div>
+        <div class='unit one-third'>
+           <h6>Last Transformation (Saved in Database)</h6>
            <textarea id='helloworld-updates' class='disabled update-textarea' disabled></textarea>
         </div>
       </div>
       <h3>Code Mirror</h3>
       <div class='grid'>
-        <div class='unit half'>
+        <div class='unit one-third'>
           <textarea id="sharejs_example" class='main-textarea'>Loading..</textarea>
         </div>
-        <div class='unit half'>
+        <div class='unit one-third'>
+            <h6>Current State of Document (Saved in Database)</h6>
+           <textarea id='sharejs_example-doc-updates' class='disabled update-textarea' disabled></textarea>
+        </div>
+        <div class='unit one-third'>
             <h6>Last Transformation (Saved in Database)</h6>
            <textarea id='sharejs_example-updates' class='disabled update-textarea' disabled></textarea>
         </div>
@@ -105,6 +113,12 @@
     var socket = io.connect('http://' + window.config.url + ':' + window.config.ports.http);
     socket.on('documents_ops', function (row) {
       var el = document.getElementById(row.new_val.name + '-updates');
+      window.el = el;
+      el.textContent = JSON.stringify(row.new_val, null, '\t');
+    });
+    socket.on('documents', function (row) {
+      console.log(row);
+      var el = document.getElementById(row.new_val.id + '-doc-updates');
       window.el = el;
       el.textContent = JSON.stringify(row.new_val, null, '\t');
     });
