@@ -113,14 +113,12 @@
     var socket = io.connect('http://' + window.config.url + ':' + window.config.ports.http);
     socket.on('documents_ops', function (row) {
       var el = document.getElementById(row.new_val.name + '-updates');
-      window.el = el;
       el.textContent = JSON.stringify(row.new_val, null, '\t');
     });
     socket.on('documents', function (row) {
       console.log(row);
       var el = document.getElementById(row.new_val.id + '-doc-updates');
-      window.el = el;
-      el.textContent = JSON.stringify(row.new_val, null, '\t');
+      el.textContent = row.new_val._data;
     });
     </script>
   </body>
