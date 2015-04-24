@@ -29,6 +29,7 @@
            <textarea id='helloworld-updates' class='disabled update-textarea' disabled></textarea>
         </div>
       </div>
+      <!--
       <h3>Code Mirror</h3>
       <div class='grid'>
         <div class='unit one-third'>
@@ -43,6 +44,7 @@
            <textarea id='sharejs_example-updates' class='disabled update-textarea' disabled></textarea>
         </div>
       </div>
+      -->
     </div>
     <script src="/config.js"></script>
     <script src="/sharejs/json0.js"></script>
@@ -69,15 +71,13 @@
     var sjs = new window.sharejs.Connection(ws);
 
     // Codemirror
+    /*
     var codeMirrorDoc = sjs.get('documents', 'sharejs_example');
     codeMirrorDoc.subscribe();
     codeMirrorDoc.whenReady(function () {
-        /**
-         * For some reason, doc.type comes out as undefined, even though it's
-         * there if we console.log the whole object or console.log the keys
-         *
-         * In order to fix this, we just have a setTimeout
-         */
+        // For some reason, doc.type comes out as undefined, even though it's
+        // there if we console.log the whole object or console.log the keys
+        // In order to fix this, we just have a setTimeout
         setTimeout(function () {
             if (!codeMirrorDoc.type) {
               codeMirrorDoc.create('text');
@@ -87,6 +87,7 @@
             }
         });
     });
+    */
 
     // Textarea
     var elem = document.getElementById('helloworld');
