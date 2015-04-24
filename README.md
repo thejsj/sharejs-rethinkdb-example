@@ -6,6 +6,8 @@ These are a few simple examples of how to run ShareJS with RethinkDB as your dat
 
 #### 1. Install Node.js
 
+##### Mac
+
 If you don’t have Node.js installed and you’re on a mac, use `brew` to install it.
 
 ```
@@ -15,7 +17,9 @@ brew install node
 
 #### 2. Install RethinkDB
 
-If you don’t have RethinkDB installed, go ahead and [install it](http://rethinkdb.com/docs/install/)
+[RethinkDB official installation instructions](http://rethinkdb.com/docs/install/)
+
+##### Mac
 
 If you’re on a mac, use brew to install it:
 
@@ -33,6 +37,8 @@ If you want to launch RethinkDB on login, run the following code:
 ```
 ln -sfv /usr/local/opt/rethinkdb/*.plist ~/Library/LaunchAgents
 ```
+
+##### Testing
 
 To see if works, go to `http://localhost:8080` and see if you get the data explorer.
 
