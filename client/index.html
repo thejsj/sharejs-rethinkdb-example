@@ -49,19 +49,24 @@
         <a href="https://github.com/thejsj/sharejs-rethinkdb-example" target="_blank">See Demo on GitHub</a>
       </div>
     </div>
+    <!-- Configuration from server -->
     <script src="/config.js"></script>
+    <!-- ShareJS client dependencies -->
     <script src="/sharejs/json0.js"></script>
     <script src="/sharejs/text.js"></script>
     <script src="/sharejs/share.uncompressed.js"></script>
+    <!-- CodeMirror client dependencies -->
     <script src="/lib/codemirror/lib/codemirror.js"></script>
     <script src="/lib/codemirror/addon/edit/matchbrackets.js"></script>
     <script src="/lib/codemirror/mode/meta.js"></script>
     <script src="/lib/codemirror/mode/javascript/javascript.js"></script>
+    <!-- ShareJS/CodeMirror client dependencies -->
     <script src="/share-codemirror.js"></script>
     <script>
     // Editor
     var elem = document.getElementById('sharejs_example');
     var m = CodeMirror.findModeByName('js');
+    // Turn our `elem` textarea into a CodeMirror editor
     var cm = CodeMirror.fromTextArea(elem, {
       mode: 'javascript',
       lineNumbers: true,
@@ -70,12 +75,15 @@
     });
 
     // ShareJS
+    // ShareJS requires us to connect to our server through a socket connection
     var ws = new WebSocket('ws://' + window.config.url + ':' + window.config.ports.sharejs);
     var sjs = new window.sharejs.Connection(ws);
 
     // Codemirror
+    // Subscribe to the `sharejs_example` example document in our `documents` collection
     var codeMirrorDoc = sjs.get('documents', 'sharejs_example');
     codeMirrorDoc.subscribe();
+    // Callback for when document is ready to edit. This means the local copy is in sync with the server
     codeMirrorDoc.whenReady(function () {
         // For some reason, doc.type comes out as undefined, even though it's
         // there if we console.log the whole object or console.log the keys
@@ -85,6 +93,7 @@
               codeMirrorDoc.create('text');
             }
             if (codeMirrorDoc.type && codeMirrorDoc.type.name === 'text') {
+              // Attach our CodeMirror DOM element to the ShareJS document
               codeMirrorDoc.attachCodeMirror(cm);
             }
         });
@@ -92,8 +101,10 @@
 
     // Textarea
     var elem = document.getElementById('helloworld');
+    // Subscribe to the `helloworld` example document in our `documents` collection
     var textareaDoc = sjs.get('documents', 'helloworld');
     textareaDoc.subscribe();
+    // Callback for when document is ready to edit. This means the local copy is in sync with the server
     textareaDoc.whenReady(function () {
       /**
        * For some reason, doc.type comes out as undefined, even though it's
@@ -106,19 +117,25 @@
           textareaDoc.create('text');
         }
         if (textareaDoc.type && textareaDoc.type.name === 'text') {
+          // Attach our textarea DOM element to the ShareJS document
           textareaDoc.attachTextarea(elem);
         }
       });
     });
 
     // RethinkDB
+    // Connection to our Socket.io instance, which listens to changes in the database
+    // This does not interact with ShareJS in any way
     var socket = io.connect('http://' + window.config.url + ':' + window.config.ports.http);
+    // Listen for changes on our RethinkDB `documents_ops` table
     socket.on('documents_ops', function (row) {
+      // When we get new changes, change the textContent of the textarea with that ID
       var el = document.getElementById(row.new_val.name + '-updates');
       el.textContent = JSON.stringify(row.new_val, null, '\t');
     });
+    // Listen for changes on our RethinkDB `documents` table
     socket.on('documents', function (row) {
-      console.log(row);
+      // When we get new changes, change the textContent of the textarea with that ID
       var el = document.getElementById(row.new_val.id + '-doc-updates');
       el.textContent = row.new_val._data;
     });

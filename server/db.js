@@ -1,6 +1,7 @@
 var r = require('rethinkdb');
 var config = require('config');
 
+// Create database and tables
 r.promise = r.connect(config.get('rethinkdb')).then(function (conn) {
   r.conn = conn;
   return r.dbCreate('sharejs')

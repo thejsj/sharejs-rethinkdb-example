@@ -2,6 +2,7 @@
 'use strict';
 var config = require('config');
 
+// Parse our configuration in order to send it to the client
 var clientConfigParser = function (req, res) {
   var _config = {
     'ports': config.get('ports'),

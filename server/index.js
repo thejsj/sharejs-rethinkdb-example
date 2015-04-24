@@ -1,5 +1,4 @@
 var config = require('config');
-console.log(config);
 var express = require('express');
 var shareCodeMirror = require('share-codemirror');
 var r = require('./db');
@@ -19,10 +18,14 @@ app
   .use(express.static(shareCodeMirror.scriptsDir))
   .use(express.static(__dirname + '/../client'));
 
+// We need 2 ports, one for our express/socket.io server and one for ShareJS
 shareJSServer.listen(config.get('ports').sharejs);
 server.listen(config.get('ports').http);
 
+// Listen to socket connections
 io.on('connection', function (socket) {
+    // Listen to changes on a specific table
+    // Emit a socket event with the name of the table when anything changes on that table
     var listenToTable = function (tableName) {
         r.connect(config.get('rethinkdb')).then(function (conn) {
           r.table(tableName)

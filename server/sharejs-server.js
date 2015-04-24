@@ -9,6 +9,7 @@ var connect = require('connect'),
 
 var socketConnectionHandler = require('./socket-handler');
 
+// Listen for socket connections
 wss.on('connection', socketConnectionHandler);
 
 module.exports = shareJSServer;
