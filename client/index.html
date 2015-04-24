@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class='container'>
-      <h1 class='main-title'>ShareJS + RethinkDB</span>
+      <h1 class='main-title'>ShareJS + RethinkDB</h1>
       <p>A Sharejs setup using the <a target='_blank' href='https://www.npmjs.com/package/livedb-rethinkdb'>livedb-rethinkdb</a/> module.</p>
       <h3>Textarea</h3>
       <div class='grid'>
@@ -57,6 +57,7 @@
     <script src="/share-codemirror.js"></script>
     <script>
     // Editor
+    /*
     var elem = document.getElementById('sharejs_example');
     var m = CodeMirror.findModeByName('js');
     var cm = CodeMirror.fromTextArea(elem, {
@@ -65,6 +66,7 @@
       matchBrackets: true,
       theme: 'solarized dark'
     });
+    */
 
     // ShareJS
     var ws = new WebSocket('ws://' + window.config.url + ':' + window.config.ports.sharejs);
