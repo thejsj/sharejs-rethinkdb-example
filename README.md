@@ -36,7 +36,7 @@ ln -sfv /usr/local/opt/rethinkdb/*.plist ~/Library/LaunchAgents
 
 To see if works, go to `http://localhost:8080` and see if you get the data explorer.
 
-![Data Explorer](http://i.ytimg.com/vi/qKPKsBNw604/maxresdefault.jpg)
+![Data Explorer](https://static.platzi.com/post/rethinkdb-dashboard.png)
 
 3. Clone git repository
 
