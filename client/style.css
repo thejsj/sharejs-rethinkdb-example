@@ -31,6 +31,16 @@ textarea.update-textarea {
   min-height: 205px;
   background: #f7f7f7;
 }
+
 h6 {
   margin: 8px 0;
+}
+
+.links {
+  font-size: 12px;
+}
+
+.links a {
+  margin-bottom: 5px;
+  display: block;
 }
