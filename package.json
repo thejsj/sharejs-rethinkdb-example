@@ -13,6 +13,7 @@
     "livedb-rethinkdb": "^0.0.4",
     "protolog": "0.0.1",
     "rethinkdb": "^1.16.2",
+    "rethinkdb-init": "0.0.2",
     "rethinkdbdash": "^1.16.14",
     "share": "^0.7.27",
     "share-codemirror": "^0.1.0",
