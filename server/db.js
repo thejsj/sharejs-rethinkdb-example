@@ -9,7 +9,6 @@ r.promise = r.init(config.get('rethinkdb'), [
   ])
   .then(function (conn) {
     r.conn = conn;
-    r.conn.use('sharejs');
   });
 
 module.exports = r;
