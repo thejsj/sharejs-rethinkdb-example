@@ -1,16 +1,8 @@
-rethinkdb:
-  image: dockerfile/rethinkdb
-  ports:
-   - "10402:8080"
-   - "10403:28015"
-   - "10404:29015"
 server:
   build: .
   ports:
    - "10400:80"
    - "10401:10401" # sharejs port
-  links:
-   - "rethinkdb"
   environment:
     NODE_ENV: production
     PORT: 80
